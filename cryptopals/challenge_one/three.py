@@ -130,12 +130,12 @@ def guess_single_byte_xor(string):
     emap.sort(key=lambda x: x[0], reverse=True)
     winner = emap[0]
 
-    return winner[1], winner[2]
+    return winner
 
 
 if __name__ == '__main__':
     TEST_STRING = u'1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'
     bytestring = binascii.unhexlify(TEST_STRING)
 
-    outcome, byte = guess_single_byte_xor(bytestring)
+    _, outcome, byte = guess_single_byte_xor(bytestring)
     print("Decoded string is {}, using byte {}".format(outcome.decode('ascii'), byte))
